@@ -193,6 +193,7 @@ public class Connection implements AutoCloseable {
                 throw new InterruptedIOException("Request timed out.");
             }
         }
+        System.out.println("Before SYNC");
 
         synchronized (this) {
             this.aSduListener = listener;
@@ -226,11 +227,12 @@ public class Connection implements AutoCloseable {
         if (!success) {
             throw new InterruptedIOException("Request timed out.");
         }
-
+        System.out.println("Before SYNC");
         synchronized (this) {
             this.aSduListener = listener;
             stopped = false;
         }
+        System.out.println("After SYNC");
     }
 
     /**

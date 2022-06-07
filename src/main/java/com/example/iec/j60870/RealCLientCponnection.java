@@ -18,15 +18,29 @@ public class RealCLientCponnection {
 
 
     public void conEst() throws Exception {
-        try (Connection clientConnection = new ClientConnectionBuilder(inetAddress).setPort(PORT).build()) {
 
-            clientConnection.startDataTransfer(new ClientEventListener());
+        Connection clientConnection = new ClientConnectionBuilder(inetAddress).setPort(PORT).build();
 
-            clientConnection.interrogation(255, CauseOfTransmission.ACTIVATION, new IeQualifierOfInterrogation(20));
+            ClientEventListener clientEventListener = new ClientEventListener();
+            clientConnection.startDataTransfer(clientEventListener);
 
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+            clientConnection.setConnectionListener(clientEventListener);
+
+            clientConnection.interrogation(3, CauseOfTransmission.ACTIVATION, new IeQualifierOfInterrogation(20));
+
+            clientConnection.stopDataTransfer();
     }
+
+
+    public static void main(String[] args) throws Exception {
+
+        //SpringApplication.run(IecApplication.class, args);
+
+        RealCLientCponnection realCLientCponnection = new RealCLientCponnection("127.0.0.1");
+        realCLientCponnection.conEst();
+
+
+    }
+
 }
 

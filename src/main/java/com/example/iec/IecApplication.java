@@ -10,7 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.net.InetAddress;
 
-@SpringBootApplication
 public class IecApplication {
 
     public static void main(String[] args) throws Exception {
