@@ -26,9 +26,11 @@ public class RealCLientCponnection {
 
             clientConnection.setConnectionListener(clientEventListener);
 
-            clientConnection.interrogation(3, CauseOfTransmission.ACTIVATION, new IeQualifierOfInterrogation(20));
+            System.out.println("KKK");
+            clientConnection.interrogation(255, CauseOfTransmission.ACTIVATION, new IeQualifierOfInterrogation(20));
+            System.out.println("KKK2");
 
-            clientConnection.stopDataTransfer();
+            //clientConnection.stopDataTransfer();
     }
 
 
