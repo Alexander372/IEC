@@ -2,16 +2,13 @@ package com.example.iec.j60870;
 
 import com.example.iec.j60870.ie.IeQualifierOfInterrogation;
 
-import java.io.IOException;
-import java.net.InetAddress;
-
-public class RealCLientCponnection {
+public class RealCLientConnection {
 
     private final static int PORT = 2404;
 
     private String inetAddress;
 
-    public RealCLientCponnection(String inetAddress)  {
+    public RealCLientConnection(String inetAddress)  {
         this.inetAddress = inetAddress;
 
     }
@@ -38,7 +35,7 @@ public class RealCLientCponnection {
 
         //SpringApplication.run(IecApplication.class, args);
 
-        RealCLientCponnection realCLientCponnection = new RealCLientCponnection("127.0.0.1");
+        RealCLientConnection realCLientCponnection = new RealCLientConnection("127.0.0.1");
         realCLientCponnection.conEst();
 
 
